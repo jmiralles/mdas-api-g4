@@ -8,7 +8,7 @@ public class GreeterShould {
 
 	@Test
 	void greet_with_a_hello_message_to_the_name_it_receives() {
-		Greeter greeter = new Greeter();
+		PokeApi greeter = new PokeApi();
 		assertEquals("Hello Jhon", greeter.greet("Jhon"));
 	}
 

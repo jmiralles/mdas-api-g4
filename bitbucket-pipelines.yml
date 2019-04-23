@@ -1,4 +1,4 @@
-image: java:11
+image: java:8
 
 options:
   max-time: 10
