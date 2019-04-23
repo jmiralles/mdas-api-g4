@@ -1,4 +1,4 @@
-package tv.codely.java_bootstrap;
+package poke;
 
 public class Greeter {
 

@@ -1,4 +1,4 @@
-package tv.codely.java_bootstrap;
+package poke;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
