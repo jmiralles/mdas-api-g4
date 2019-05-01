@@ -1,10 +1,12 @@
 package poke;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import java.util.List;
 
 
+@SpringBootApplication
 public class PokeApiApp {
-
   public static void main(String[] args) {
     try {
       PokemonService pokemonService = new PokemonService();
