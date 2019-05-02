@@ -15,7 +15,7 @@ public class PokemonTypeFinder {
     try {
       return pokemonTypeRepository.find(pokemonId);
     } catch (Exception ex) {
-      throw new PokemonNotFoundException(ex.getMessage());
+      throw new PokemonNotFoundException();
     }
   }
 }

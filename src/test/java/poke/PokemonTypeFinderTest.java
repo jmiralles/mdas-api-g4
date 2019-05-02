@@ -4,12 +4,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import poke.exceptions.PokemonNotFoundException;
 
 import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -19,6 +21,7 @@ public class PokemonTypeFinderTest {
   private PokemonTypeRepository pokemonTypeRepository;
 
   private final int VALID_POKEMON_ID = 1;
+  private final int INVALID_POKEMON_ID = -1;
   private final List<String> VALID_TYPE_OUTPUT = Collections.singletonList("output");
 
   @Test
@@ -27,7 +30,16 @@ public class PokemonTypeFinderTest {
 
     pokemonTypeFinder = new PokemonTypeFinder(pokemonTypeRepository);
     List<String> actualResult = pokemonTypeFinder.invoke(VALID_POKEMON_ID);
-    verify(pokemonTypeRepository, times(1)).find(VALID_POKEMON_ID);
     assertThat(actualResult, is(VALID_TYPE_OUTPUT));
+    verify(pokemonTypeRepository, times(1)).find(VALID_POKEMON_ID);
+  }
+
+  @Test
+  public void getPokemonType_throwsException_WhenPokemonDoesNotExists() {
+    when(pokemonTypeRepository.find(INVALID_POKEMON_ID)).thenThrow(new PokemonNotFoundException());
+
+    pokemonTypeFinder = new PokemonTypeFinder(pokemonTypeRepository);
+    assertThrows(PokemonNotFoundException.class, () -> pokemonTypeFinder.invoke(INVALID_POKEMON_ID));
+    verify(pokemonTypeRepository, times(1)).find(INVALID_POKEMON_ID);
   }
 }
