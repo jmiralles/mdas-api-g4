@@ -26,19 +26,25 @@ public class PokemonTypeFinderTest {
 
   @Test
   public void getPokemonType_returnsCorrect_WhenPokemonExists() {
+    // GIVEN
     when(pokemonTypeRepository.find(VALID_POKEMON_ID)).thenReturn(VALID_TYPE_OUTPUT);
-
     pokemonTypeFinder = new PokemonTypeFinder(pokemonTypeRepository);
+
+    // WHEN
     List<String> actualResult = pokemonTypeFinder.invoke(VALID_POKEMON_ID);
+
+    // THEN
     assertThat(actualResult, is(VALID_TYPE_OUTPUT));
     verify(pokemonTypeRepository, times(1)).find(VALID_POKEMON_ID);
   }
 
   @Test
   public void getPokemonType_throwsException_WhenPokemonDoesNotExists() {
+    // GIVEN
     when(pokemonTypeRepository.find(INVALID_POKEMON_ID)).thenThrow(new PokemonNotFoundException());
-
     pokemonTypeFinder = new PokemonTypeFinder(pokemonTypeRepository);
+
+    // THEN
     assertThrows(PokemonNotFoundException.class, () -> pokemonTypeFinder.invoke(INVALID_POKEMON_ID));
     verify(pokemonTypeRepository, times(1)).find(INVALID_POKEMON_ID);
   }
