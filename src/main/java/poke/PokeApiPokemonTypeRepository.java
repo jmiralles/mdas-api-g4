@@ -3,10 +3,13 @@ package poke;
 import me.sargunvohra.lib.pokekotlin.client.PokeApi;
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient;
 import me.sargunvohra.lib.pokekotlin.model.Pokemon;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+@Component("pokeTypeRepository")
 public class PokeApiPokemonTypeRepository implements PokemonTypeRepository {
   @Override
   public List<String> find(Integer pokemonId) {

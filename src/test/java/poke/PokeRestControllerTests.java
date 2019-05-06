@@ -42,7 +42,7 @@ public class PokeRestControllerTests {
   @Test
   public void paramGreetingShouldReturnTailoredMessage() throws Exception {
 
-    this.mockMvc.perform(get("/invoke").param("id", "1"))
+    this.mockMvc.perform(get("/pokemon-type").param("id", "1"))
         .andDo(print()).andExpect(status().isOk())
         .andExpect(jsonPath("$", is(Lists.newArrayList("poison", "grass"))));
   }
@@ -50,7 +50,7 @@ public class PokeRestControllerTests {
   @Test(expected = PokemonNotFoundException.class)
   public void paramGreetingShouldReturnTailoredMessage2() throws Exception {
 
-    this.mockMvc.perform(get("/invoke").param("id", "-1"));
+    this.mockMvc.perform(get("/pokemon-type").param("id", "-1"));
   }
 
 }
