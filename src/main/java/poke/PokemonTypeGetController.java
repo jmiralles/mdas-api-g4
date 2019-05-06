@@ -1,5 +1,9 @@
 package poke;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,6 +13,9 @@ import java.util.List;
 
 @RestController
 public class PokemonTypeGetController {
+
+  @Autowired
+  @Qualifier("pokeType")
   private final PokemonTypeFinder pokemonTypeFinder;
 
   public PokemonTypeGetController(PokemonTypeFinder pokemonTypeFinder) {
