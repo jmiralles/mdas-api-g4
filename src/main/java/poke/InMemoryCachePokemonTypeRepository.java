@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CachePokemonTypeRepository implements PokemonTypeRepository {
+public class InMemoryCachePokemonTypeRepository implements PokemonTypeRepository {
   private final Map<Integer, List<String>> cache = new HashMap<>();
   private final PokemonTypeRepository pokemonTypeRepository;
 
-  public CachePokemonTypeRepository(PokemonTypeRepository pokemonTypeRepository) {
+  public InMemoryCachePokemonTypeRepository(PokemonTypeRepository pokemonTypeRepository) {
     this.pokemonTypeRepository = pokemonTypeRepository;
   }
 
