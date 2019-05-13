@@ -1,4 +1,6 @@
-package poke;
+package poke.infrastructure.pokemontype;
+
+import poke.domain.PokemonTypeRepository;
 
 import java.util.HashMap;
 import java.util.List;

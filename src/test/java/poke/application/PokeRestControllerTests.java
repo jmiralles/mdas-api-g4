@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package poke;
+package poke.application;
 
 import org.assertj.core.util.Lists;
 import org.junit.Test;
@@ -24,7 +24,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import poke.exceptions.PokemonNotFoundException;
+import poke.infrastructure.exceptions.PokemonNotFoundException;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;

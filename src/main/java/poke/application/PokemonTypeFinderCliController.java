@@ -1,4 +1,7 @@
-package poke;
+package poke.application;
+
+import poke.infrastructure.pokemontype.PokeApiPokemonTypeRepository;
+import poke.PokemonTypeFinder;
 
 import java.util.List;
 

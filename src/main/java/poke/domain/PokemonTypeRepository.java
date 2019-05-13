@@ -1,4 +1,4 @@
-package poke;
+package poke.domain;
 
 import java.util.List;
 
