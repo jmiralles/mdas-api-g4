@@ -1,10 +1,11 @@
-package poke.infrastructure.pokemontype;
+package poke.infrastructure.repositories;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import poke.domain.PokemonTypeRepository;
+import poke.infrastructure.repositories.pokemontype.InMemoryCachePokemonTypeRepository;
 
 import java.util.Collections;
 import java.util.List;

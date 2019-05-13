@@ -1,7 +1,8 @@
-package poke.application;
+package poke.infrastructure.console;
 
-import poke.infrastructure.pokemontype.PokeApiPokemonTypeRepository;
-import poke.PokemonTypeFinder;
+import poke.infrastructure.exceptions.PokemonNotFoundException;
+import poke.infrastructure.repositories.pokemontype.PokeApiPokemonTypeRepository;
+import poke.application.PokemonTypeFinder;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class PokemonTypeFinderCliController {
       List<String> typesOfGivenPokemon = pokemonTypeFinder.invoke(pokemonId);
 
       typesOfGivenPokemon.forEach(System.out::println);
-    } catch (Exception e) {
+    } catch (PokemonNotFoundException e) {
       System.out.println("Exception in POKEMON API:- " + e);
     }
   }

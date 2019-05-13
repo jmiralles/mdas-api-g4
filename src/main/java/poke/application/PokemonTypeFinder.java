@@ -1,4 +1,4 @@
-package poke;
+package poke.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,10 +20,6 @@ public class PokemonTypeFinder {
   }
 
   public List<String> invoke(Integer pokemonId) throws PokemonNotFoundException {
-    try {
-      return pokemonTypeRepository.find(pokemonId);
-    } catch (Exception ex) {
-      throw new PokemonNotFoundException();
-    }
+    return pokemonTypeRepository.find(pokemonId);
   }
 }

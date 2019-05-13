@@ -1,4 +1,4 @@
-package poke.infrastructure.pokemontype;
+package poke.infrastructure.repositories.pokemontype;
 
 import poke.domain.PokemonTypeRepository;
 

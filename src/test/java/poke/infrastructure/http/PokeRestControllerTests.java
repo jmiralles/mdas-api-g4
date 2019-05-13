@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package poke.application;
+package poke.infrastructure.http;
 
 import org.assertj.core.util.Lists;
 import org.junit.Test;

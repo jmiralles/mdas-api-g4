@@ -1,10 +1,10 @@
-package poke.infrastructure.pokemontype;
+package poke.infrastructure.repositories;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import poke.PokemonTypeFinder;
+import poke.application.PokemonTypeFinder;
 import poke.domain.PokemonTypeRepository;
 import poke.infrastructure.exceptions.PokemonNotFoundException;
 

@@ -1,4 +1,4 @@
-package poke.infrastructure.pokemontype;
+package poke.infrastructure.repositories.pokemontype;
 
 import me.sargunvohra.lib.pokekotlin.client.PokeApi;
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient;
