@@ -1,13 +1,14 @@
 package poke.infrastructure.repositories.pokemontype;
 
 import poke.domain.PokemonTypeRepository;
+import poke.domain.valueobjects.PokemonId;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class InMemoryCachePokemonTypeRepository implements PokemonTypeRepository {
-  private final Map<Integer, List<String>> cache = new HashMap<>();
+  private final Map<PokemonId, List<String>> cache = new HashMap<>();
   private final PokemonTypeRepository pokemonTypeRepository;
 
   public InMemoryCachePokemonTypeRepository(PokemonTypeRepository pokemonTypeRepository) {
@@ -15,7 +16,7 @@ public class InMemoryCachePokemonTypeRepository implements PokemonTypeRepository
   }
 
   @Override
-  public List<String> find(Integer pokemonId) {
+  public List<String> find(PokemonId pokemonId) {
     if (cache.containsKey(pokemonId)) {
       return cache.get(pokemonId);
     }

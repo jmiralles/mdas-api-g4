@@ -7,6 +7,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import poke.application.PokemonTypeFinder;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.exceptions.PokemonNotFoundException;
+import poke.domain.valueobjects.PokemonId;
 
 import java.util.Collections;
 import java.util.List;
@@ -22,8 +23,8 @@ public class PokemonTypeFinderTest {
   @Mock
   private PokemonTypeRepository pokemonTypeRepository;
 
-  private final int VALID_POKEMON_ID = 1;
-  private final int INVALID_POKEMON_ID = -1;
+  private final PokemonId VALID_POKEMON_ID = new PokemonId(1);
+  private final PokemonId INVALID_POKEMON_ID = new PokemonId(-1);
   private final List<String> VALID_TYPE_OUTPUT = Collections.singletonList("output");
 
   @Test

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.exceptions.PokemonNotFoundException;
+import poke.domain.valueobjects.PokemonId;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class PokemonTypeFinder {
     this.pokemonTypeRepository = pokemonTypeRepository;
   }
 
-  public List<String> invoke(Integer pokemonId) throws PokemonNotFoundException {
+  public List<String> invoke(PokemonId pokemonId) throws PokemonNotFoundException {
     return pokemonTypeRepository.find(pokemonId);
   }
 }

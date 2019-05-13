@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import poke.application.PokemonTypeFinder;
+import poke.domain.valueobjects.PokemonId;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class PokemonTypeGetController {
 
   @RequestMapping(method = RequestMethod.GET, path = "/pokemon-type")
   public List<String> invoke(@RequestParam(value = "id") String id) {
-    return pokemonTypeFinder.invoke(Integer.parseInt(id));
+    PokemonId pokemonId = new PokemonId(Integer.parseInt(id));
+    return pokemonTypeFinder.invoke(pokemonId);
   }
 }

@@ -1,6 +1,7 @@
 package poke.infrastructure.console;
 
 import poke.domain.exceptions.PokemonNotFoundException;
+import poke.domain.valueobjects.PokemonId;
 import poke.infrastructure.repositories.pokemontype.PokeApiPokemonTypeRepository;
 import poke.application.PokemonTypeFinder;
 
@@ -12,7 +13,7 @@ public class PokemonTypeFinderCliController {
       PokeApiPokemonTypeRepository pokeApiPokemonTypeRepository = new PokeApiPokemonTypeRepository();
       PokemonTypeFinder pokemonTypeFinder = new PokemonTypeFinder(pokeApiPokemonTypeRepository);
 
-      Integer pokemonId = Integer.parseInt(args[0]);
+      PokemonId pokemonId = new PokemonId(Integer.parseInt(args[0]));
       List<String> typesOfGivenPokemon = pokemonTypeFinder.invoke(pokemonId);
 
       typesOfGivenPokemon.forEach(System.out::println);

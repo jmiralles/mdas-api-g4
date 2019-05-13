@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import poke.domain.PokemonTypeRepository;
+import poke.domain.valueobjects.PokemonId;
 import poke.infrastructure.repositories.pokemontype.InMemoryCachePokemonTypeRepository;
 
 import java.util.Collections;
@@ -22,7 +23,7 @@ public class InMemoryCachePokemonTypeRepositoryTest {
 
   @Test
   public void find_ShouldCallPokemonRepository_WhenPokemonIdNotFoundInCache() {
-    int pokemonId = 1;
+    PokemonId pokemonId = new PokemonId(1);
     List<String> pokemonTypes = Collections.singletonList("output");
     when(pokemonTypeRepository.find(pokemonId)).thenReturn(pokemonTypes);
     inMemoryCachePokemonTypeRepository = new InMemoryCachePokemonTypeRepository(pokemonTypeRepository);
@@ -34,7 +35,7 @@ public class InMemoryCachePokemonTypeRepositoryTest {
 
   @Test
   public void find_ShouldNotCallPokemonRepository_WhenPokemonIdFoundInCache() {
-    int pokemonId = 1;
+    PokemonId pokemonId = new PokemonId(1);
     List<String> pokemonTypes = Collections.singletonList("output");
     when(pokemonTypeRepository.find(pokemonId)).thenReturn(pokemonTypes);
     inMemoryCachePokemonTypeRepository = new InMemoryCachePokemonTypeRepository(pokemonTypeRepository);
