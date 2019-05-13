@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
+import poke.domain.valueobjects.PokemonType;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class PokemonTypeFinder {
     this.pokemonTypeRepository = pokemonTypeRepository;
   }
 
-  public List<String> invoke(PokemonId pokemonId) throws PokemonNotFoundException {
+  public List<PokemonType> invoke(PokemonId pokemonId) throws PokemonNotFoundException {
     return pokemonTypeRepository.find(pokemonId);
   }
 }

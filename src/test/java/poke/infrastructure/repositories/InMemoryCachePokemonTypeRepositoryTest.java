@@ -6,6 +6,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.valueobjects.PokemonId;
+import poke.domain.valueobjects.PokemonType;
 import poke.infrastructure.repositories.pokemontype.InMemoryCachePokemonTypeRepository;
 
 import java.util.Collections;
@@ -20,29 +21,27 @@ public class InMemoryCachePokemonTypeRepositoryTest {
   @Mock
   private PokemonTypeRepository pokemonTypeRepository;
   private InMemoryCachePokemonTypeRepository inMemoryCachePokemonTypeRepository;
+  private PokemonId pokemonId = new PokemonId(1);
+  private List<PokemonType> pokemonTypes = Collections.singletonList(new PokemonType("output"));
 
   @Test
   public void find_ShouldCallPokemonRepository_WhenPokemonIdNotFoundInCache() {
-    PokemonId pokemonId = new PokemonId(1);
-    List<String> pokemonTypes = Collections.singletonList("output");
     when(pokemonTypeRepository.find(pokemonId)).thenReturn(pokemonTypes);
     inMemoryCachePokemonTypeRepository = new InMemoryCachePokemonTypeRepository(pokemonTypeRepository);
 
-    List<String> expectedPokemonTypes = inMemoryCachePokemonTypeRepository.find(pokemonId);
-    assertThat(expectedPokemonTypes, is(pokemonTypes));
+    List<PokemonType> actualPokemonTypes = inMemoryCachePokemonTypeRepository.find(pokemonId);
+    assertThat(actualPokemonTypes, is(pokemonTypes));
     verify(pokemonTypeRepository, times(1)).find(pokemonId);
   }
 
   @Test
   public void find_ShouldNotCallPokemonRepository_WhenPokemonIdFoundInCache() {
-    PokemonId pokemonId = new PokemonId(1);
-    List<String> pokemonTypes = Collections.singletonList("output");
     when(pokemonTypeRepository.find(pokemonId)).thenReturn(pokemonTypes);
     inMemoryCachePokemonTypeRepository = new InMemoryCachePokemonTypeRepository(pokemonTypeRepository);
 
     inMemoryCachePokemonTypeRepository.find(pokemonId);
-    List<String> expectedPokemonTypes = inMemoryCachePokemonTypeRepository.find(pokemonId);
-    assertThat(expectedPokemonTypes, is(pokemonTypes));
+    List<PokemonType> actualPokemonTypes = inMemoryCachePokemonTypeRepository.find(pokemonId);
+    assertThat(actualPokemonTypes, is(pokemonTypes));
     verify(pokemonTypeRepository, times(1)).find(pokemonId);
   }
 }

@@ -8,6 +8,7 @@ import poke.application.PokemonTypeFinder;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
+import poke.domain.valueobjects.PokemonType;
 
 import java.util.Collections;
 import java.util.List;
@@ -25,7 +26,7 @@ public class PokemonTypeFinderTest {
 
   private final PokemonId VALID_POKEMON_ID = new PokemonId(1);
   private final PokemonId INVALID_POKEMON_ID = new PokemonId(-1);
-  private final List<String> VALID_TYPE_OUTPUT = Collections.singletonList("output");
+  private final List<PokemonType> VALID_TYPE_OUTPUT = Collections.singletonList(new PokemonType("output"));
 
   @Test
   public void getPokemonType_returnsCorrect_WhenPokemonExists() {
@@ -34,7 +35,7 @@ public class PokemonTypeFinderTest {
     pokemonTypeFinder = new PokemonTypeFinder(pokemonTypeRepository);
 
     // WHEN
-    List<String> actualResult = pokemonTypeFinder.invoke(VALID_POKEMON_ID);
+    List<PokemonType> actualResult = pokemonTypeFinder.invoke(VALID_POKEMON_ID);
 
     // THEN
     assertThat(actualResult, is(VALID_TYPE_OUTPUT));
