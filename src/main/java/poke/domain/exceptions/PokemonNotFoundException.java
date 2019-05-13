@@ -1,4 +1,4 @@
-package poke.infrastructure.exceptions;
+package poke.domain.exceptions;
 
 public class PokemonNotFoundException extends RuntimeException {
 }

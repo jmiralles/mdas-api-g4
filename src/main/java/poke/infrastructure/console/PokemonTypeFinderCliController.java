@@ -1,6 +1,6 @@
 package poke.infrastructure.console;
 
-import poke.infrastructure.exceptions.PokemonNotFoundException;
+import poke.domain.exceptions.PokemonNotFoundException;
 import poke.infrastructure.repositories.pokemontype.PokeApiPokemonTypeRepository;
 import poke.application.PokemonTypeFinder;
 

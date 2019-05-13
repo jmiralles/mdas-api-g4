@@ -6,7 +6,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import poke.application.PokemonTypeFinder;
 import poke.domain.PokemonTypeRepository;
-import poke.infrastructure.exceptions.PokemonNotFoundException;
+import poke.domain.exceptions.PokemonNotFoundException;
 
 import java.util.Collections;
 import java.util.List;

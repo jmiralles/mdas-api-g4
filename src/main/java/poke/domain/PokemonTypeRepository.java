@@ -1,6 +1,6 @@
 package poke.domain;
 
-import poke.infrastructure.exceptions.PokemonNotFoundException;
+import poke.domain.exceptions.PokemonNotFoundException;
 
 import java.util.List;
 

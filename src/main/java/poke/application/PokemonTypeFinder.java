@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import poke.domain.PokemonTypeRepository;
-import poke.infrastructure.exceptions.PokemonNotFoundException;
+import poke.domain.exceptions.PokemonNotFoundException;
 
 import java.util.List;
 
