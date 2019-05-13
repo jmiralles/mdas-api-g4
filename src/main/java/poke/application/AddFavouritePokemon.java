@@ -1,6 +1,7 @@
 package poke.application;
 
 import poke.domain.FavouritePokemonRepository;
+import poke.domain.valueobjects.UserId;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class AddFavouritePokemon {
     this.favouritePokemonRepository = favouritePokemonRepository;
   }
 
-  public void invoke(String userId, List<String> favouritePokemonIds) {
+  public void invoke(UserId userId, List<String> favouritePokemonIds) {
     favouritePokemonRepository.addPokemon(userId, favouritePokemonIds);
   }
 }

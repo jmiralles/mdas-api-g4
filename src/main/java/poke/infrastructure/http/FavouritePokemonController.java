@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import poke.application.PokemonTypeFinder;
+import poke.domain.valueobjects.UserId;
 
 import java.util.List;
 
