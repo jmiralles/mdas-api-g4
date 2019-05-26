@@ -1,8 +1,5 @@
 package poke.application;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
@@ -10,12 +7,8 @@ import poke.domain.valueobjects.PokemonType;
 
 import java.util.List;
 
-@Component("pokeType")
 public class PokemonTypeFinder {
-
-  @Autowired
-  @Qualifier("pokeTypeRepository")
-  private final PokemonTypeRepository pokemonTypeRepository;
+  private PokemonTypeRepository pokemonTypeRepository;
 
   public PokemonTypeFinder(PokemonTypeRepository pokemonTypeRepository) {
     this.pokemonTypeRepository = pokemonTypeRepository;
