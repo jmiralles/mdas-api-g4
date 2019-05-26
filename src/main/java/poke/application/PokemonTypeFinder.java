@@ -3,9 +3,7 @@ package poke.application;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
-import poke.domain.valueobjects.PokemonType;
-
-import java.util.List;
+import poke.domain.valueobjects.PokemonTypeList;
 
 public class PokemonTypeFinder {
   private PokemonTypeRepository pokemonTypeRepository;
@@ -14,7 +12,7 @@ public class PokemonTypeFinder {
     this.pokemonTypeRepository = pokemonTypeRepository;
   }
 
-  public List<PokemonType> invoke(PokemonId pokemonId) throws PokemonNotFoundException {
+  public PokemonTypeList invoke(PokemonId pokemonId) throws PokemonNotFoundException {
     return pokemonTypeRepository.find(pokemonId);
   }
 }

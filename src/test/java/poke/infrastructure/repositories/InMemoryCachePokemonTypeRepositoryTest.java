@@ -8,10 +8,10 @@ import poke.domain.PokemonIdMother;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonType;
+import poke.domain.valueobjects.PokemonTypeList;
 import poke.infrastructure.repositories.pokemontype.InMemoryCachePokemonTypeRepository;
 
 import java.util.Collections;
-import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -22,7 +22,7 @@ public class InMemoryCachePokemonTypeRepositoryTest {
   @Mock
   private PokemonTypeRepository pokemonTypeRepository;
   private InMemoryCachePokemonTypeRepository inMemoryCachePokemonTypeRepository;
-  private List<PokemonType> pokemonTypes = Collections.singletonList(new PokemonType("output"));
+  private PokemonTypeList pokemonTypes = new PokemonTypeList(Collections.singletonList(new PokemonType("output")));
 
   @Test
   public void find_ShouldCallPokemonRepository_WhenPokemonIdNotFoundInCache() {
@@ -30,7 +30,7 @@ public class InMemoryCachePokemonTypeRepositoryTest {
     when(pokemonTypeRepository.find(pokemonId)).thenReturn(pokemonTypes);
     inMemoryCachePokemonTypeRepository = new InMemoryCachePokemonTypeRepository(pokemonTypeRepository);
 
-    List<PokemonType> actualPokemonTypes = inMemoryCachePokemonTypeRepository.find(pokemonId);
+    PokemonTypeList actualPokemonTypes = inMemoryCachePokemonTypeRepository.find(pokemonId);
     assertThat(actualPokemonTypes, is(pokemonTypes));
     verify(pokemonTypeRepository, times(1)).find(pokemonId);
   }
@@ -42,7 +42,7 @@ public class InMemoryCachePokemonTypeRepositoryTest {
     inMemoryCachePokemonTypeRepository = new InMemoryCachePokemonTypeRepository(pokemonTypeRepository);
 
     inMemoryCachePokemonTypeRepository.find(pokemonId);
-    List<PokemonType> actualPokemonTypes = inMemoryCachePokemonTypeRepository.find(pokemonId);
+    PokemonTypeList actualPokemonTypes = inMemoryCachePokemonTypeRepository.find(pokemonId);
     assertThat(actualPokemonTypes, is(pokemonTypes));
     verify(pokemonTypeRepository, times(1)).find(pokemonId);
   }

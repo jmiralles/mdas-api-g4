@@ -10,9 +10,9 @@ import poke.domain.PokemonTypeRepository;
 import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonType;
+import poke.domain.valueobjects.PokemonTypeList;
 
 import java.util.Collections;
-import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -25,7 +25,7 @@ public class PokemonTypeFinderTest {
   @Mock
   private PokemonTypeRepository pokemonTypeRepository;
 
-  private final List<PokemonType> VALID_TYPE_OUTPUT = Collections.singletonList(new PokemonType("output"));
+  private final PokemonTypeList VALID_TYPE_OUTPUT = new PokemonTypeList(Collections.singletonList(new PokemonType("output")));
 
   @Test
   public void getPokemonType_returnsCorrect_WhenPokemonExists() {
@@ -35,7 +35,7 @@ public class PokemonTypeFinderTest {
     pokemonTypeFinder = new PokemonTypeFinder(pokemonTypeRepository);
 
     // WHEN
-    List<PokemonType> actualResult = pokemonTypeFinder.invoke(validPokemonId);
+    PokemonTypeList actualResult = pokemonTypeFinder.invoke(validPokemonId);
 
     // THEN
     assertThat(actualResult, is(VALID_TYPE_OUTPUT));

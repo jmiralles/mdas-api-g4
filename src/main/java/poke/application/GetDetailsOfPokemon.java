@@ -3,9 +3,7 @@ package poke.application;
 import poke.domain.*;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonName;
-import poke.domain.valueobjects.PokemonType;
-
-import java.util.List;
+import poke.domain.valueobjects.PokemonTypeList;
 
 public class GetDetailsOfPokemon {
   private PokemonTypeRepository pokemonTypeRepository;
@@ -22,7 +20,7 @@ public class GetDetailsOfPokemon {
   }
 
   public PokemonDetails invoke(PokemonId pokemonId) {
-    List<PokemonType> pokemonTypeList = pokemonTypeRepository.find(pokemonId);
+    PokemonTypeList pokemonTypeList = pokemonTypeRepository.find(pokemonId);
     PokemonName pokemonName = pokemonNameRepository.get(pokemonId);
 
     Pokemon pokemon = new Pokemon(pokemonId, pokemonName, pokemonTypeList);

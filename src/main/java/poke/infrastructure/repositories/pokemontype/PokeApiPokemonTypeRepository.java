@@ -6,18 +6,18 @@ import me.sargunvohra.lib.pokekotlin.model.Pokemon;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonType;
+import poke.domain.valueobjects.PokemonTypeList;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class PokeApiPokemonTypeRepository implements PokemonTypeRepository {
   @Override
-  public List<PokemonType> find(PokemonId pokemonId) {
+  public PokemonTypeList find(PokemonId pokemonId) {
     PokeApi pokeApi = new PokeApiClient();
     Pokemon pokemon = pokeApi.getPokemon(pokemonId.getPokemonId());
 
-    return pokemon.getTypes().stream()
+    return new PokemonTypeList(pokemon.getTypes().stream()
         .map(pokemonType -> new PokemonType(pokemonType.getType().getName()))
-        .collect(Collectors.toList());
+        .collect(Collectors.toList()));
   }
 }

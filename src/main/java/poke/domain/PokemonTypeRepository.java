@@ -2,10 +2,8 @@ package poke.domain;
 
 import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
-import poke.domain.valueobjects.PokemonType;
-
-import java.util.List;
+import poke.domain.valueobjects.PokemonTypeList;
 
 public interface PokemonTypeRepository {
-  List<PokemonType> find(PokemonId pokemonId) throws PokemonNotFoundException;
+  PokemonTypeList find(PokemonId pokemonId) throws PokemonNotFoundException;
 }
