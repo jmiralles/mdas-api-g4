@@ -21,7 +21,7 @@ public class PokemonDetailsGetController {
 
   @RequestMapping(method = RequestMethod.GET, path = "/pokemon-details")
   public PokemonDetails invoke(@RequestParam(value = "id") String id) {
-    PokemonId pokemonId = new PokemonId(Integer.parseInt(id));
+    PokemonId pokemonId = PokemonId.fromString(id);
     return getDetailsOfPokemon.invoke(pokemonId);
   }
 }

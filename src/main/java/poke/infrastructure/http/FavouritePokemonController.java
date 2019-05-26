@@ -19,7 +19,7 @@ public class FavouritePokemonController {
 
   @RequestMapping(method = RequestMethod.GET, path = "/add-favourite-pokemon")
   public void invoke(@RequestParam(value = "userId") String userId, @RequestParam(value = "pokemonIds") List<String> pokemonIds) {
-    PokemonIdList pokemonIdList = new PokemonIdList(pokemonIds.stream().map(pokemonId -> new PokemonId(Integer.parseInt(pokemonId))).collect(Collectors.toList()));
+    PokemonIdList pokemonIdList = new PokemonIdList(pokemonIds.stream().map(PokemonId::fromString).collect(Collectors.toList()));
     UserId userIdObject = new UserId(userId);
     addFavouritePokemon.invoke(userIdObject, pokemonIdList);
   }

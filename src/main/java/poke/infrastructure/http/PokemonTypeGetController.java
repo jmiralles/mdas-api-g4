@@ -15,7 +15,7 @@ public class PokemonTypeGetController {
 
   @RequestMapping(method = RequestMethod.GET, path = "/pokemon-type")
   public PokemonTypeList invoke(@RequestParam(value = "id") String id) {
-    PokemonId pokemonId = new PokemonId(Integer.parseInt(id));
+    PokemonId pokemonId = PokemonId.fromString(id);
     return pokemonTypeFinder.invoke(pokemonId);
   }
 }

@@ -5,8 +5,16 @@ import java.util.Objects;
 public class PokemonId {
   private Integer pokemonId;
 
-  public PokemonId(Integer pokemonId) {
+  private PokemonId(Integer pokemonId) {
     this.pokemonId = pokemonId;
+  }
+
+  public static PokemonId fromInteger(Integer pokemonId) {
+    return new PokemonId(pokemonId);
+  }
+
+  public static PokemonId fromString(String pokemonId) {
+    return PokemonId.fromInteger(Integer.parseInt(pokemonId));
   }
 
   public Integer getPokemonId() {

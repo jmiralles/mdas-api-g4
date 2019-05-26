@@ -12,7 +12,7 @@ public class PokemonTypeFinderCliController {
       PokeApiPokemonTypeRepository pokeApiPokemonTypeRepository = new PokeApiPokemonTypeRepository();
       PokemonTypeFinder pokemonTypeFinder = new PokemonTypeFinder(pokeApiPokemonTypeRepository);
 
-      PokemonId pokemonId = new PokemonId(Integer.parseInt(args[0]));
+      PokemonId pokemonId = PokemonId.fromString(args[0]);
       PokemonTypeList typesOfGivenPokemon = pokemonTypeFinder.invoke(pokemonId);
 
       System.out.println(typesOfGivenPokemon.toString());

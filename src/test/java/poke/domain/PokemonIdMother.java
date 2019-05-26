@@ -8,10 +8,10 @@ public class PokemonIdMother {
   private static final Random generator = new Random();
 
   public static PokemonId generateValidPokemonId() {
-    return new PokemonId(generator.nextInt(100));
+    return PokemonId.fromInteger(generator.nextInt(100));
   }
 
   public static PokemonId generateInvalidPokemonId() {
-    return new PokemonId(-generator.nextInt(100));
+    return PokemonId.fromInteger(-generator.nextInt(100));
   }
 }
