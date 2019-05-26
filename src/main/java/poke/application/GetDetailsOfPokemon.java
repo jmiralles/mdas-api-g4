@@ -1,6 +1,10 @@
 package poke.application;
 
-import poke.domain.*;
+import poke.domain.FavouritePokemonRepository;
+import poke.domain.Pokemon;
+import poke.domain.PokemonDetails;
+import poke.domain.PokemonNameRepository;
+import poke.domain.PokemonTypeRepository;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonName;
 import poke.domain.valueobjects.PokemonTypeList;

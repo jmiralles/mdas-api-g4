@@ -5,13 +5,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import poke.application.AddFavouritePokemon;
-import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonIdList;
 import poke.domain.valueobjects.UserId;
 import poke.infrastructure.repositories.favouritepokemon.InMemoryFavouritePokemonRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 public class FavouritePokemonController {
