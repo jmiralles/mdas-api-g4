@@ -10,7 +10,7 @@ public class PokemonIdList {
     this.pokemonIdList = pokemonIdList;
   }
 
-  public List<PokemonId> getPokemonIds() {
+  public List<PokemonId> getPokemonIdList() {
     return pokemonIdList;
   }
 
