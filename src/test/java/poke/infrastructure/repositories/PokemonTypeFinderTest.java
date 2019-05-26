@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import poke.application.PokemonTypeFinder;
+import poke.domain.PokemonIdMother;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
@@ -24,32 +25,32 @@ public class PokemonTypeFinderTest {
   @Mock
   private PokemonTypeRepository pokemonTypeRepository;
 
-  private final PokemonId VALID_POKEMON_ID = new PokemonId(1);
-  private final PokemonId INVALID_POKEMON_ID = new PokemonId(-1);
   private final List<PokemonType> VALID_TYPE_OUTPUT = Collections.singletonList(new PokemonType("output"));
 
   @Test
   public void getPokemonType_returnsCorrect_WhenPokemonExists() {
     // GIVEN
-    when(pokemonTypeRepository.find(VALID_POKEMON_ID)).thenReturn(VALID_TYPE_OUTPUT);
+    PokemonId validPokemonId = PokemonIdMother.generateValidPokemonId();
+    when(pokemonTypeRepository.find(validPokemonId)).thenReturn(VALID_TYPE_OUTPUT);
     pokemonTypeFinder = new PokemonTypeFinder(pokemonTypeRepository);
 
     // WHEN
-    List<PokemonType> actualResult = pokemonTypeFinder.invoke(VALID_POKEMON_ID);
+    List<PokemonType> actualResult = pokemonTypeFinder.invoke(validPokemonId);
 
     // THEN
     assertThat(actualResult, is(VALID_TYPE_OUTPUT));
-    verify(pokemonTypeRepository, times(1)).find(VALID_POKEMON_ID);
+    verify(pokemonTypeRepository, times(1)).find(validPokemonId);
   }
 
   @Test
   public void getPokemonType_throwsException_WhenPokemonDoesNotExists() {
     // GIVEN
-    when(pokemonTypeRepository.find(INVALID_POKEMON_ID)).thenThrow(new PokemonNotFoundException());
+    PokemonId inValidPokemonId = PokemonIdMother.generateInvalidPokemonId();
+    when(pokemonTypeRepository.find(inValidPokemonId)).thenThrow(new PokemonNotFoundException());
     pokemonTypeFinder = new PokemonTypeFinder(pokemonTypeRepository);
 
     // THEN
-    assertThrows(PokemonNotFoundException.class, () -> pokemonTypeFinder.invoke(INVALID_POKEMON_ID));
-    verify(pokemonTypeRepository, times(1)).find(INVALID_POKEMON_ID);
+    assertThrows(PokemonNotFoundException.class, () -> pokemonTypeFinder.invoke(inValidPokemonId));
+    verify(pokemonTypeRepository, times(1)).find(inValidPokemonId);
   }
 }
