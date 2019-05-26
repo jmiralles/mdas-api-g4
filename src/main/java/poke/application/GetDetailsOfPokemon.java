@@ -4,6 +4,7 @@ import poke.domain.*;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonName;
 import poke.domain.valueobjects.PokemonTypeList;
+import poke.domain.valueobjects.TimesMarkedAsFavourite;
 
 public class GetDetailsOfPokemon {
   private PokemonTypeRepository pokemonTypeRepository;
@@ -24,7 +25,7 @@ public class GetDetailsOfPokemon {
     PokemonName pokemonName = pokemonNameRepository.get(pokemonId);
 
     Pokemon pokemon = new Pokemon(pokemonId, pokemonName, pokemonTypeList);
-    Integer numberOfTimesMarkedAsFavourite = favouritePokemonRepository.numberOfTimesMarkedAsFavourite(pokemonId);
+    TimesMarkedAsFavourite numberOfTimesMarkedAsFavourite = favouritePokemonRepository.numberOfTimesMarkedAsFavourite(pokemonId);
 
     return new PokemonDetails(pokemon, numberOfTimesMarkedAsFavourite);
   }

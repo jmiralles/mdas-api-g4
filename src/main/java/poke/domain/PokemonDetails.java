@@ -1,12 +1,14 @@
 package poke.domain;
 
+import poke.domain.valueobjects.TimesMarkedAsFavourite;
+
 import java.util.Objects;
 
 public class PokemonDetails {
   private Pokemon pokemon;
-  private Integer numberOfTimesMarkedAsFavourite;
+  private TimesMarkedAsFavourite numberOfTimesMarkedAsFavourite;
 
-  public PokemonDetails(Pokemon pokemon, Integer numberOfTimesMarkedAsFavourite) {
+  public PokemonDetails(Pokemon pokemon, TimesMarkedAsFavourite numberOfTimesMarkedAsFavourite) {
     this.pokemon = pokemon;
     this.numberOfTimesMarkedAsFavourite = numberOfTimesMarkedAsFavourite;
   }
@@ -15,7 +17,7 @@ public class PokemonDetails {
     return pokemon;
   }
 
-  public Integer getNumberOfTimesMarkedAsFavourite() {
+  public TimesMarkedAsFavourite getNumberOfTimesMarkedAsFavourite() {
     return numberOfTimesMarkedAsFavourite;
   }
 

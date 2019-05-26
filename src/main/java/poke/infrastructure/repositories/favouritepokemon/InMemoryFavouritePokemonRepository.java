@@ -3,6 +3,7 @@ package poke.infrastructure.repositories.favouritepokemon;
 import poke.domain.FavouritePokemonRepository;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonIdList;
+import poke.domain.valueobjects.TimesMarkedAsFavourite;
 import poke.domain.valueobjects.UserId;
 
 import java.util.HashMap;
@@ -17,8 +18,8 @@ public class InMemoryFavouritePokemonRepository implements FavouritePokemonRepos
   }
 
   @Override
-  public Integer numberOfTimesMarkedAsFavourite(PokemonId pokemonId) {
-    return Math.toIntExact(userAndFavouritePokemonDatabase.entrySet().stream()
-        .filter((entry) -> entry.getValue().hasPokemonId(pokemonId)).count());
+  public TimesMarkedAsFavourite numberOfTimesMarkedAsFavourite(PokemonId pokemonId) {
+    return new TimesMarkedAsFavourite(Math.toIntExact(userAndFavouritePokemonDatabase.entrySet().stream()
+        .filter((entry) -> entry.getValue().hasPokemonId(pokemonId)).count()));
   }
 }
