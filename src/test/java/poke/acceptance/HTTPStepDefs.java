@@ -9,8 +9,9 @@ public class HTTPStepDefs {
   public void iAmInHTTPApplication() {
   }
 
-  @When("I enter {string}")
-  public void iEnter(String arg0) {
+  @When("I send {string} to pokemon-type endpoint")
+  public void iSendToPokemonTypeEndpoint(String arg0) {
+
   }
 
   @Then("I get correct response")
