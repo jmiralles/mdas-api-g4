@@ -15,4 +15,10 @@ public class InMemoryFavouritePokemonRepository implements FavouritePokemonRepos
   public void addPokemon(UserId userId, List<PokemonId> pokemonIds) {
     userAndFavouritePokemonDatabase.put(userId, pokemonIds);
   }
+
+  @Override
+  public Integer numberOfTimesMarkedAsFavourite(PokemonId pokemonId) {
+    return Math.toIntExact(userAndFavouritePokemonDatabase.entrySet().stream()
+        .filter((entry) -> entry.getValue().contains(pokemonId)).count());
+  }
 }

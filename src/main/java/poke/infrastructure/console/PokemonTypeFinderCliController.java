@@ -1,10 +1,10 @@
 package poke.infrastructure.console;
 
+import poke.application.PokemonTypeFinder;
 import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonType;
 import poke.infrastructure.repositories.pokemontype.PokeApiPokemonTypeRepository;
-import poke.application.PokemonTypeFinder;
 
 import java.util.List;
 

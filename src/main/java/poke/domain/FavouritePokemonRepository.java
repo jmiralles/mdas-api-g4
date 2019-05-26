@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface FavouritePokemonRepository {
   void addPokemon(UserId userId, List<PokemonId> pokemonIds);
+
+  Integer numberOfTimesMarkedAsFavourite(PokemonId pokemonId);
 }
