@@ -9,6 +9,10 @@ public class PokemonType {
     this.pokemonType = pokemonType;
   }
 
+  public String getPokemonType() {
+    return pokemonType;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
