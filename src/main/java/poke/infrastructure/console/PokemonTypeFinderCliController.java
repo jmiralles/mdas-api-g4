@@ -19,7 +19,8 @@ public class PokemonTypeFinderCliController {
 
       typesOfGivenPokemon.forEach(pokemonType -> System.out.println(pokemonType.toString()));
     } catch (PokemonNotFoundException e) {
-      System.out.println("Exception in POKEMON API:- " + e);
+      System.out.println("Unknown Pokemon");
+      System.exit(1);
     }
   }
 }
