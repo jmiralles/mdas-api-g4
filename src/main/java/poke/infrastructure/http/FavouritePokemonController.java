@@ -6,26 +6,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import poke.application.PokemonTypeFinder;
+import poke.application.AddFavouritePokemon;
 import poke.domain.valueobjects.PokemonId;
-import poke.domain.valueobjects.PokemonType;
+import poke.domain.valueobjects.UserId;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class FavouritePokemonController {
 
   @Autowired
   @Qualifier("pokeType")
-  private final PokemonTypeFinder pokemonTypeFinder;
+  private final AddFavouritePokemon addFavouritePokemon;
 
-  public FavouritePokemonController(PokemonTypeFinder pokemonTypeFinder) {
-    this.pokemonTypeFinder = pokemonTypeFinder;
+  public FavouritePokemonController(AddFavouritePokemon addFavouritePokemon) {
+    this.addFavouritePokemon = addFavouritePokemon;
   }
 
-  @RequestMapping(method = RequestMethod.GET, path = "/pokemon-type")
-  public List<PokemonType> invoke(@RequestParam(value = "id") String id) {
-    PokemonId pokemonId = new PokemonId(Integer.parseInt(id));
-    return pokemonTypeFinder.invoke(pokemonId);
+  @RequestMapping(method = RequestMethod.GET, path = "/add-favourite-pokemon")
+  public void invoke(@RequestParam(value = "userId") String userId, @RequestParam(value = "pokemonIds") List<String> pokemonIds) {
+    List<PokemonId> pokemonIdList = pokemonIds.stream().map(pokemonId -> new PokemonId(Integer.parseInt(pokemonId))).collect(Collectors.toList());
+    UserId userIdObject = new UserId(userId);
+    addFavouritePokemon.invoke(userIdObject, pokemonIdList);
   }
 }

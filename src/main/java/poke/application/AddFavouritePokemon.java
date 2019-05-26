@@ -7,7 +7,7 @@ import poke.domain.valueobjects.UserId;
 import java.util.List;
 
 public class AddFavouritePokemon {
-  FavouritePokemonRepository favouritePokemonRepository;
+  private FavouritePokemonRepository favouritePokemonRepository;
 
   public AddFavouritePokemon(FavouritePokemonRepository favouritePokemonRepository) {
     this.favouritePokemonRepository = favouritePokemonRepository;
