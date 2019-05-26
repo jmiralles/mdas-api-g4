@@ -3,7 +3,7 @@ package poke.domain.valueobjects;
 import java.util.Objects;
 
 public class PokemonId {
-  Integer pokemonId;
+  private Integer pokemonId;
 
   public PokemonId(Integer pokemonId) {
     this.pokemonId = pokemonId;
