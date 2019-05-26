@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import poke.application.AddFavouritePokemon;
 import poke.domain.valueobjects.PokemonId;
+import poke.domain.valueobjects.PokemonIdList;
 import poke.domain.valueobjects.UserId;
 import poke.infrastructure.repositories.favouritepokemon.InMemoryFavouritePokemonRepository;
 
@@ -18,7 +19,7 @@ public class FavouritePokemonController {
 
   @RequestMapping(method = RequestMethod.GET, path = "/add-favourite-pokemon")
   public void invoke(@RequestParam(value = "userId") String userId, @RequestParam(value = "pokemonIds") List<String> pokemonIds) {
-    List<PokemonId> pokemonIdList = pokemonIds.stream().map(pokemonId -> new PokemonId(Integer.parseInt(pokemonId))).collect(Collectors.toList());
+    PokemonIdList pokemonIdList = new PokemonIdList(pokemonIds.stream().map(pokemonId -> new PokemonId(Integer.parseInt(pokemonId))).collect(Collectors.toList()));
     UserId userIdObject = new UserId(userId);
     addFavouritePokemon.invoke(userIdObject, pokemonIdList);
   }
