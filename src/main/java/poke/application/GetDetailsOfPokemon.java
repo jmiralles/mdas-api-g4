@@ -5,6 +5,7 @@ import poke.domain.Pokemon;
 import poke.domain.PokemonDetails;
 import poke.domain.PokemonNameRepository;
 import poke.domain.PokemonTypeRepository;
+import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonName;
 import poke.domain.valueobjects.PokemonTypeList;
@@ -24,7 +25,7 @@ public class GetDetailsOfPokemon {
 
   }
 
-  public PokemonDetails invoke(PokemonId pokemonId) {
+  public PokemonDetails invoke(PokemonId pokemonId) throws PokemonNotFoundException {
     PokemonTypeList pokemonTypeList = pokemonTypeRepository.find(pokemonId);
     PokemonName pokemonName = pokemonNameRepository.get(pokemonId);
 
