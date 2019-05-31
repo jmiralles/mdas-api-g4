@@ -24,6 +24,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.util.NestedServletException;
 import poke.domain.exceptions.PokemonNotFoundException;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -47,7 +48,7 @@ public class PokeRestControllerTests {
         .andExpect(jsonPath("$", is(Lists.newArrayList("poison", "grass"))));
   }
 
-  @Test(expected = PokemonNotFoundException.class)
+  @Test(expected = NestedServletException.class)
   public void paramGreetingShouldReturnTailoredMessage2() throws Exception {
 
     this.mockMvc.perform(get("/pokemon-type").param("id", "-1"));

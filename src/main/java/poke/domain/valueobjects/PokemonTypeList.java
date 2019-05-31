@@ -36,4 +36,8 @@ public class PokemonTypeList {
   public String toString() {
     return pokemonTypeList.stream().map(PokemonType::toString).collect(Collectors.joining(","));
   }
+
+  public List<String> toStringArrayList() {
+    return pokemonTypeList.stream().map(PokemonType::getPokemonType).collect(Collectors.toList());
+  }
 }

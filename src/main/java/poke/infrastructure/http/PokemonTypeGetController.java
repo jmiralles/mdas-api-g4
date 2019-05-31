@@ -9,13 +9,16 @@ import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonTypeList;
 import poke.infrastructure.repositories.pokemontype.PokeApiPokemonTypeRepository;
 
+import java.util.List;
+
 @RestController
 public class PokemonTypeGetController {
   private final PokemonTypeFinder pokemonTypeFinder = new PokemonTypeFinder(new PokeApiPokemonTypeRepository());
 
   @RequestMapping(method = RequestMethod.GET, path = "/pokemon-type")
-  public PokemonTypeList invoke(@RequestParam(value = "id") String id) {
+  public List<String> invoke(@RequestParam(value = "id") String id) {
     PokemonId pokemonId = PokemonId.fromString(id);
-    return pokemonTypeFinder.invoke(pokemonId);
+    PokemonTypeList pokemonTypes = pokemonTypeFinder.invoke(pokemonId);
+    return pokemonTypes.toStringArrayList();
   }
 }
