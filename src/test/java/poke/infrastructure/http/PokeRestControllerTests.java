@@ -41,7 +41,7 @@ public class PokeRestControllerTests {
   private MockMvc mockMvc;
 
   @Test
-  public void paramGreetingShouldReturnTailoredMessage() throws Exception {
+  public void pokemonType_ShouldReturnTypesOfPokemon_WhenExistingPokemon() throws Exception {
 
     this.mockMvc.perform(get("/pokemon-type").param("id", "1"))
         .andDo(print()).andExpect(status().isOk())
@@ -49,7 +49,7 @@ public class PokeRestControllerTests {
   }
 
   @Test(expected = NestedServletException.class)
-  public void paramGreetingShouldReturnTailoredMessage2() throws Exception {
+  public void pokemonType_ShouldThrowException_WhenNonExistingPokemon() throws Exception {
 
     this.mockMvc.perform(get("/pokemon-type").param("id", "-1"));
   }
