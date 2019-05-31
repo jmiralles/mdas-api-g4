@@ -3,4 +3,4 @@ Feature: Registry of the users
     Given I am in CLI application
     When I enter "-1"
     Then I get "Unknown Pokemon" in System.out
-    Then I get error code "1"
+    Then I get error code 1

@@ -18,7 +18,7 @@ public class PokemonTypeFinderCliController {
       System.out.println(typesOfGivenPokemon.toString());
     } catch (PokemonNotFoundException e) {
       System.out.println("Unknown Pokemon");
-      System.exit(1);
+
     }
   }
 }
