@@ -1,4 +1,4 @@
-package poke.infrastructure.command;
+package poke.infrastructure.command.repository;
 
 import poke.application.command.Command;
 import poke.application.handler.CommandHandler;

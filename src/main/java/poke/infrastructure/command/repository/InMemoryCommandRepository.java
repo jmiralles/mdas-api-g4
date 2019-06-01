@@ -4,7 +4,6 @@ import poke.application.command.Command;
 import poke.application.handler.CommandHandler;
 import poke.application.handler.AddFavouritePokemonHandler;
 import poke.application.command.AddFavouritePokemonCommand;
-import poke.infrastructure.command.CommandRepository;
 
 import java.util.HashMap;
 import java.util.Map;
