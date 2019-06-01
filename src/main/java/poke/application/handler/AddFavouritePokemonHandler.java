@@ -1,7 +1,7 @@
 package poke.application.handler;
 
 import poke.application.command.AddFavouritePokemonCommand;
-import poke.application.AddFavouritePokemon;
+import poke.application.usecase.AddFavouritePokemon;
 import poke.domain.valueobjects.PokemonIdList;
 import poke.domain.valueobjects.UserId;
 import poke.infrastructure.repositories.favouritepokemon.InMemoryFavouritePokemonRepository;

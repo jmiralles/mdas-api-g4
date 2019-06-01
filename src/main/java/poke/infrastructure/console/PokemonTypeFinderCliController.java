@@ -1,6 +1,6 @@
 package poke.infrastructure.console;
 
-import poke.application.PokemonTypeFinder;
+import poke.application.usecase.PokemonTypeFinder;
 import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonTypeList;

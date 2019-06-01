@@ -1,4 +1,4 @@
-package poke.application;
+package poke.application.usecase;
 
 import poke.domain.FavouritePokemonRepository;
 import poke.domain.Pokemon;

@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import poke.application.PokemonTypeFinder;
+import poke.application.usecase.PokemonTypeFinder;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonTypeList;
 import poke.infrastructure.repositories.pokemontype.PokeApiPokemonTypeRepository;

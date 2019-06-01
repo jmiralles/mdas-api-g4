@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import poke.application.PokemonTypeFinder;
+import poke.application.usecase.PokemonTypeFinder;
 import poke.domain.PokemonIdMother;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.exceptions.PokemonNotFoundException;
