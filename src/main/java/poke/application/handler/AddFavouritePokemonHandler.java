@@ -1,6 +1,5 @@
 package poke.application.handler;
 
-import poke.application.CommandHandler;
 import poke.application.command.AddFavouritePokemonCommand;
 import poke.application.AddFavouritePokemon;
 import poke.domain.valueobjects.PokemonIdList;

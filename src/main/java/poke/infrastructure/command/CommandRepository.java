@@ -1,7 +1,7 @@
 package poke.infrastructure.command;
 
-import poke.application.Command;
-import poke.application.CommandHandler;
+import poke.application.command.Command;
+import poke.application.handler.CommandHandler;
 
 public interface CommandRepository {
   CommandHandler getHandlerOfCommand(Command command);

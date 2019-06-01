@@ -1,7 +1,7 @@
 package poke.infrastructure.command.repository;
 
-import poke.application.Command;
-import poke.application.CommandHandler;
+import poke.application.command.Command;
+import poke.application.handler.CommandHandler;
 import poke.application.handler.AddFavouritePokemonHandler;
 import poke.application.command.AddFavouritePokemonCommand;
 import poke.infrastructure.command.CommandRepository;

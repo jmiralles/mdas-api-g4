@@ -1,7 +1,5 @@
 package poke.application.command;
 
-import poke.application.Command;
-
 import java.util.List;
 
 public class AddFavouritePokemonCommand implements Command {
