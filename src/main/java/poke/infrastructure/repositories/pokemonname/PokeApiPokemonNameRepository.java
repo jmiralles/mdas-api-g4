@@ -3,11 +3,13 @@ package poke.infrastructure.repositories.pokemonname;
 import me.sargunvohra.lib.pokekotlin.client.PokeApi;
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient;
 import me.sargunvohra.lib.pokekotlin.model.Pokemon;
+import org.springframework.stereotype.Component;
 import poke.domain.PokemonNameRepository;
 import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonName;
 
+@Component
 public class PokeApiPokemonNameRepository implements PokemonNameRepository {
   @Override
   public PokemonName get(PokemonId pokemonId) throws PokemonNotFoundException {

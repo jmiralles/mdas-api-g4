@@ -3,6 +3,7 @@ package poke.infrastructure.repositories.pokemontype;
 import me.sargunvohra.lib.pokekotlin.client.PokeApi;
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient;
 import me.sargunvohra.lib.pokekotlin.model.Pokemon;
+import org.springframework.stereotype.Component;
 import poke.domain.PokemonTypeRepository;
 import poke.domain.exceptions.PokemonNotFoundException;
 import poke.domain.valueobjects.PokemonId;
@@ -11,6 +12,7 @@ import poke.domain.valueobjects.PokemonTypeList;
 
 import java.util.stream.Collectors;
 
+@Component
 public class PokeApiPokemonTypeRepository implements PokemonTypeRepository {
   @Override
   public PokemonTypeList find(PokemonId pokemonId) throws PokemonNotFoundException {

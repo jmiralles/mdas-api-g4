@@ -1,5 +1,6 @@
 package poke.infrastructure.repositories.favouritepokemon;
 
+import org.springframework.stereotype.Component;
 import poke.domain.FavouritePokemonRepository;
 import poke.domain.valueobjects.PokemonId;
 import poke.domain.valueobjects.PokemonIdList;
@@ -9,6 +10,7 @@ import poke.domain.valueobjects.UserId;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component()
 public class InMemoryFavouritePokemonRepository implements FavouritePokemonRepository {
   private final Map<UserId, PokemonIdList> userAndFavouritePokemonDatabase = new HashMap<>();
 
