@@ -12,16 +12,16 @@ import java.util.Map;
 
 @Component()
 public class InMemoryFavouritePokemonRepository implements FavouritePokemonRepository {
-  private final Map<UserId, PokemonIdList> userAndFavouritePokemonDatabase = new HashMap<>();
+  public static HashMap<UserId, PokemonIdList> userAndFavouritePokemonDatabase = new HashMap<UserId,PokemonIdList>();
 
   @Override
   public void addPokemon(UserId userId, PokemonIdList pokemonIds) {
-    userAndFavouritePokemonDatabase.put(userId, pokemonIds);
+    this.userAndFavouritePokemonDatabase.put(userId, pokemonIds);
   }
 
   @Override
   public TimesMarkedAsFavourite numberOfTimesMarkedAsFavourite(PokemonId pokemonId) {
-    return new TimesMarkedAsFavourite(Math.toIntExact(userAndFavouritePokemonDatabase.entrySet().stream()
+    return new TimesMarkedAsFavourite(Math.toIntExact(this.userAndFavouritePokemonDatabase.entrySet().stream()
         .filter((entry) -> entry.getValue().hasPokemonId(pokemonId)).count()));
   }
 }
