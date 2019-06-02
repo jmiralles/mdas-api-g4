@@ -1,23 +1,33 @@
 package poke.domain;
 
-import poke.domain.valueobjects.TimesMarkedAsFavourite;
-
-import java.util.Objects;
+import java.util.List;
 
 public class PokemonDetails {
-  private Pokemon pokemon;
-  private TimesMarkedAsFavourite numberOfTimesMarkedAsFavourite;
+  private int id;
+  private String name;
+  private List<String> pokemonTypes;
+  private int numberOfTimesMarkedAsFavourite;
 
-  public PokemonDetails(Pokemon pokemon, TimesMarkedAsFavourite numberOfTimesMarkedAsFavourite) {
-    this.pokemon = pokemon;
+  public PokemonDetails(int id, String name, List<String> pokemonTypes, int numberOfTimesMarkedAsFavourite) {
+    this.id = id;
+    this.name = name;
+    this.pokemonTypes = pokemonTypes;
     this.numberOfTimesMarkedAsFavourite = numberOfTimesMarkedAsFavourite;
   }
 
-  public Pokemon getPokemon() {
-    return pokemon;
+  public int getId() {
+    return id;
   }
 
-  public TimesMarkedAsFavourite getNumberOfTimesMarkedAsFavourite() {
+  public String getName() {
+    return name;
+  }
+
+  public List<String> getPokemonTypes() {
+    return pokemonTypes;
+  }
+
+  public int getNumberOfTimesMarkedAsFavourite() {
     return numberOfTimesMarkedAsFavourite;
   }
 
@@ -29,13 +39,28 @@ public class PokemonDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
+
     PokemonDetails that = (PokemonDetails) o;
-    return pokemon.equals(that.pokemon) &&
-        numberOfTimesMarkedAsFavourite.equals(that.numberOfTimesMarkedAsFavourite);
+
+    if (id != that.id) {
+      return false;
+    }
+    if (numberOfTimesMarkedAsFavourite != that.numberOfTimesMarkedAsFavourite) {
+      return false;
+    }
+    if (!name.equals(that.name)) {
+      return false;
+    }
+    return pokemonTypes.equals(that.pokemonTypes);
+
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pokemon, numberOfTimesMarkedAsFavourite);
+    int result = id;
+    result = 31 * result + name.hashCode();
+    result = 31 * result + pokemonTypes.hashCode();
+    result = 31 * result + numberOfTimesMarkedAsFavourite;
+    return result;
   }
 }

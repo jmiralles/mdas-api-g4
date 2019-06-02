@@ -32,6 +32,11 @@ public class GetDetailsOfPokemon {
     Pokemon pokemon = new Pokemon(pokemonId, pokemonName, pokemonTypeList);
     TimesMarkedAsFavourite numberOfTimesMarkedAsFavourite = favouritePokemonRepository.numberOfTimesMarkedAsFavourite(pokemonId);
 
-    return new PokemonDetails(pokemon, numberOfTimesMarkedAsFavourite);
+    return new PokemonDetails(
+        pokemonId.getPokemonId(),
+        pokemon.getName().getName(),
+        pokemon.getTypes().toStringArrayList(),
+        numberOfTimesMarkedAsFavourite.getTimesMarkesAsFavourite()
+    );
   }
 }
